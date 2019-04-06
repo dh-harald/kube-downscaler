@@ -58,7 +58,7 @@ def autoscale_resource(resource: pykube.objects.NamespacedAPIObject, upscale_per
                 uptime = resource.annotations.get(UPSCALE_PERIOD_ANNOTATION, upscale_period)
                 downtime = resource.annotations.get(DOWNSCALE_PERIOD_ANNOTATION, downscale_period)
                 if helper.matches_time_spec(now, uptime) and helper.matches_time_spec(now, downtime):
-                    logger.debug('Upscale period and downscale period are overlaps, do nothing')
+                    logger.debug('Upscale and downscale periods overlap, do nothing')
                     ignore = True
                 elif helper.matches_time_spec(now, uptime):
                     is_uptime = True
